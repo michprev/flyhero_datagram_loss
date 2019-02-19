@@ -73,7 +73,7 @@ void app_main(void)
 
     while (true)
     {
-        sendto(socket_fd, buffer, length, 0, (struct sockaddr *)&broadcast, sizeof(broadcast));
+        assert (sendto(socket_fd, buffer, length, 0, (struct sockaddr *)&broadcast, sizeof(broadcast)) == length);
         vTaskDelay(1000 / portTICK_RATE_MS);
     }
 }
